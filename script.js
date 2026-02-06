@@ -127,6 +127,12 @@ function render() {
             
             tile.style.backgroundPosition = `${bgX}% ${bgY}%`;
             
+            // Add number
+            const number = document.createElement('span');
+            number.className = 'tile-number';
+            number.textContent = tileId + 1;
+            tile.appendChild(number);
+
             // Click event
             tile.addEventListener('click', () => moveTile(positionIndex));
         }

@@ -78,6 +78,19 @@ header h1 {
     cursor: default;
 }
 
+.tile-number {
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    pointer-events: none;
+    z-index: 2;
+}
+
 /* Overlays for transitions */
 #victory-overlay, #valentine-reveal {
     position: absolute;
