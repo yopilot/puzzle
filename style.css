@@ -92,7 +92,7 @@ header h1 {
 }
 
 /* Overlays for transitions */
-#victory-overlay, #valentine-reveal {
+#victory-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -109,15 +109,35 @@ header h1 {
 }
 
 #valentine-reveal {
-    z-index: 20;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+    z-index: 1000; /* Much higher z-index */
     background: var(--bg-gradient);
 }
 
-#final-photo, #valentine-photo {
+#final-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+#valentine-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the whole wide image is visible */
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px; /* Adds some spacing from screen edges */
 }
 
 /* Visible states */
