@@ -1,0 +1,152 @@
+:root {
+    --primary-color: #ff8fa3;
+    --secondary-color: #fff0f3;
+    --accent-color: #c9184a;
+    --text-color: #590d22;
+    --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-gradient);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.main-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.game-area {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+#puzzle-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.tile {
+    position: absolute;
+    /* width/height set in JS or could be 33.33% here */
+    background-image: url('photo.jpg');
+    background-size: 300% 300%; /* Ensures image fits the 3x3 grid container relative to tile */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: top 0.3s ease, left 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tile.empty {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+/* Overlays for transitions */
+#victory-overlay, #valentine-reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+    z-index: 10;
+}
+
+#valentine-reveal {
+    z-index: 20;
+    background: var(--bg-gradient);
+}
+
+#final-photo, #valentine-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Visible states */
+.visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.intro-fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.controls {
+    margin-top: 1.5rem;
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 143, 163, 0.6);
+    background: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .game-area {
+        width: 300px;
+        height: 300px;
+    }
+    /* Tile size handled by JS % now, background-size is % too */
+}

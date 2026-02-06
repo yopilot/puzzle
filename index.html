@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Puzzle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Piece together the memory...</h1>
+        </header>
+        
+        <div class="game-area">
+            <div id="puzzle-container">
+                <!-- Tiles will be generated here -->
+            </div>
+            
+            <div id="victory-overlay" class="hidden">
+                <div class="photo-reveal">
+                    <img id="final-photo" src="photo.jpg" alt="Completed Puzzle">
+                </div>
+            </div>
+
+            <div id="valentine-reveal" class="hidden">
+                 <img id="valentine-photo" src="photo2.png" alt="Surprise">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="start-btn">Start Puzzle</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
